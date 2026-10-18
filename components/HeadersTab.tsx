@@ -16,10 +16,11 @@ export function HeadersTab({ profile }: { profile: Profile }) {
   return (
     <div className="space-y-1">
       {profile.headers.length > 0 && (
-        <div className="grid grid-cols-[1.5rem_1fr_1.5fr_2rem_2rem] items-center gap-3 px-1 pb-1">
+        <div className="grid grid-cols-[1.5rem_1fr_1.5fr_1fr_2rem_2rem] items-center gap-3 px-1 pb-1">
           <span />
           <span className="text-xs font-medium text-neutral-400">Header</span>
           <span className="text-xs font-medium text-neutral-400">Value</span>
+          <span className="text-xs font-medium text-neutral-400">Note</span>
           <span />
           <span />
         </div>
@@ -28,7 +29,7 @@ export function HeadersTab({ profile }: { profile: Profile }) {
       {profile.headers.map((header) => (
         <div
           key={header.id}
-          className="grid grid-cols-[1.5rem_1fr_1.5fr_2rem_2rem] items-center gap-3 px-1"
+          className="grid grid-cols-[1.5rem_1fr_1.5fr_1fr_2rem_2rem] items-center gap-3 px-1"
         >
           <input
             type="checkbox"
@@ -64,6 +65,18 @@ export function HeadersTab({ profile }: { profile: Profile }) {
               })
             }
             className="border-b border-neutral-700 bg-transparent px-1 py-1.5 font-mono text-xs outline-none placeholder:text-neutral-600 focus:border-blue-500"
+          />
+          <input
+            type="text"
+            value={header.note ?? ""}
+            placeholder="note"
+            title={header.note || undefined}
+            onChange={(e) =>
+              actions.updateHeader(profile.id, header.id, {
+                note: e.target.value,
+              })
+            }
+            className="border-b border-neutral-700 bg-transparent px-1 py-1.5 text-xs text-neutral-400 outline-none placeholder:text-neutral-600 focus:border-blue-500 focus:text-neutral-200"
           />
           <button
             onClick={() => void copyHeader(header)}

@@ -13,6 +13,7 @@ Configure **Profiles**, each with a set of headers to inject and a set of sites 
 - The toolbar icon shows at a glance what's happening on the current tab: green dot when headers are being attached, purple dot when the extension is on but nothing matches the tab, gray dot when the global switch is off. (Icon sets live in `public/icon`, `public/icon-idle`, `public/icon-disabled`.)
 - Everything auto-saves immediately to extension storage (`storage.local`) — no save buttons.
 - Copy a header's value to the clipboard with one click.
+- Add a note to each header (e.g. what a token is for) — notes are just for you and never sent.
 - Export a profile to a JSON file ("Download profile" in its settings) and import it on another machine ("Import" in the sidebar).
 
 ## Development

@@ -11,10 +11,11 @@ export function serializeProfile(profile: Profile): string {
     {
       name: profile.name,
       color: profile.color,
-      headers: profile.headers.map(({ name, value, enabled }) => ({
+      headers: profile.headers.map(({ name, value, enabled, note }) => ({
         name,
         value,
         enabled,
+        note: note ?? "",
       })),
       sites: profile.sites.map(({ url, enabled }) => ({ url, enabled })),
     },
@@ -33,6 +34,7 @@ function parseHeader(value: unknown): HeaderEntry {
     name: typeof h.name === "string" ? h.name : "",
     value: typeof h.value === "string" ? h.value : "",
     enabled: typeof h.enabled === "boolean" ? h.enabled : true,
+    note: typeof h.note === "string" ? h.note : "",
   };
 }
 

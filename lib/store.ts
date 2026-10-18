@@ -151,6 +151,7 @@ export const actions = {
       name: "",
       value: "",
       enabled: true,
+      note: "",
     };
     patchProfile(profileId, (p) => ({ headers: [...p.headers, header] }));
   },

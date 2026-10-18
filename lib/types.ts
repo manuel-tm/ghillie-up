@@ -3,6 +3,8 @@ export interface HeaderEntry {
   name: string;
   value: string;
   enabled: boolean;
+  /** Free-text annotation for the user; never sent. Absent on entries saved before notes existed. */
+  note?: string;
 }
 
 export interface SiteEntry {
